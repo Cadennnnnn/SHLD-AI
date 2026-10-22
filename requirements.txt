@@ -1,0 +1,13 @@
+langgraph
+langchain
+langchain-groq
+langchain-openai
+langchain-chroma
+langchain-huggingface
+langchain-text-splitters
+langgraph-checkpoint-sqlite
+chromadb
+sentence-transformers
+streamlit
+python-dotenv
+pytest

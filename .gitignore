@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Runtime databases, sidecars, and vector stores
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-*
+chroma_db/
+data/chroma_db/
+
+# Generated files
+*.log
+.DS_Store
