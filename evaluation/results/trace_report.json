@@ -1,0 +1,23 @@
+{
+  "conversations": {
+    "total": 1,
+    "data": [
+      {
+        "thread_id": "14290fc1-c497-4f93-b782-70e4b58eca55",
+        "title": "HOLA",
+        "created_at": "2026-11-16 03:07:34",
+        "updated_at": "2026-11-16 03:11:06"
+      }
+    ]
+  },
+  "audit": {
+    "total": 0,
+    "approved": 0,
+    "rejected": 0,
+    "data": []
+  },
+  "security_events": {
+    "total": 0,
+    "data": []
+  }
+}
