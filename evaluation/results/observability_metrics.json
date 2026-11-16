@@ -1,0 +1,339 @@
+{
+  "total_scenarios": 104,
+  "precision": {
+    "assessed_cases": 81,
+    "passed": 75,
+    "failed": 6,
+    "precision_pct_excl_review": 92.59,
+    "review_required": 23
+  },
+  "consistency": {
+    "by_category": {
+      "greeting": {
+        "pass": 7,
+        "fail": 3,
+        "review": 0,
+        "pass_rate_within_category": 70.0,
+        "consistent": false
+      },
+      "missing_id": {
+        "pass": 10,
+        "fail": 0,
+        "review": 0,
+        "pass_rate_within_category": 100.0,
+        "consistent": true
+      },
+      "unknown_incident": {
+        "pass": 10,
+        "fail": 0,
+        "review": 0,
+        "pass_rate_within_category": 100.0,
+        "consistent": true
+      },
+      "procedure_lookup": {
+        "pass": 10,
+        "fail": 0,
+        "review": 0,
+        "pass_rate_within_category": 100.0,
+        "consistent": true
+      },
+      "evidence_gaps": {
+        "pass": 10,
+        "fail": 0,
+        "review": 0,
+        "pass_rate_within_category": 100.0,
+        "consistent": true
+      },
+      "sql_query": {
+        "pass": 10,
+        "fail": 0,
+        "review": 0,
+        "pass_rate_within_category": 100.0,
+        "consistent": true
+      },
+      "approval_accept": {
+        "pass": 9,
+        "fail": 1,
+        "review": 0,
+        "pass_rate_within_category": 90.0,
+        "consistent": false
+      },
+      "language": {
+        "pass": 3,
+        "fail": 1,
+        "review": 0,
+        "pass_rate_within_category": 75.0,
+        "consistent": false
+      },
+      "data_integrity": {
+        "pass": 3,
+        "fail": 0,
+        "review": 0,
+        "pass_rate_within_category": 100.0,
+        "consistent": true
+      },
+      "safety": {
+        "pass": 1,
+        "fail": 0,
+        "review": 0,
+        "pass_rate_within_category": 100.0,
+        "consistent": true
+      },
+      "insufficient_evidence": {
+        "pass": 1,
+        "fail": 0,
+        "review": 0,
+        "pass_rate_within_category": 100.0,
+        "consistent": true
+      },
+      "target_validation": {
+        "pass": 0,
+        "fail": 1,
+        "review": 0,
+        "pass_rate_within_category": 0.0,
+        "consistent": true
+      },
+      "terminal_command": {
+        "pass": 1,
+        "fail": 0,
+        "review": 0,
+        "pass_rate_within_category": 100.0,
+        "consistent": true
+      }
+    },
+    "inconsistent_categories": [
+      "greeting",
+      "approval_accept",
+      "language"
+    ]
+  },
+  "error_rate": {
+    "execution_errors": 1,
+    "error_rate_pct": 0.96
+  },
+  "latency_seconds": {
+    "overall": {
+      "min": 0.008,
+      "max": 70.993,
+      "mean": 13.343,
+      "median": 1.595,
+      "p90": 52.94
+    },
+    "by_category": {
+      "approval_accept": {
+        "mean": 53.047,
+        "max": 66.604,
+        "n": 10
+      },
+      "approval_reject": {
+        "mean": 51.056,
+        "max": 58.266,
+        "n": 10
+      },
+      "sql_query": {
+        "mean": 13.401,
+        "max": 45.806,
+        "n": 10
+      },
+      "greeting": {
+        "mean": 7.329,
+        "max": 70.993,
+        "n": 10
+      },
+      "evidence_gaps": {
+        "mean": 5.809,
+        "max": 8.502,
+        "n": 10
+      },
+      "safety": {
+        "mean": 4.823,
+        "max": 4.823,
+        "n": 1
+      },
+      "procedure_lookup": {
+        "mean": 3.895,
+        "max": 7.28,
+        "n": 10
+      },
+      "target_validation": {
+        "mean": 3.341,
+        "max": 3.341,
+        "n": 1
+      },
+      "data_integrity": {
+        "mean": 2.739,
+        "max": 7.352,
+        "n": 3
+      },
+      "language": {
+        "mean": 2.124,
+        "max": 5.299,
+        "n": 4
+      },
+      "persistence": {
+        "mean": 2.064,
+        "max": 3.505,
+        "n": 2
+      },
+      "missing_id": {
+        "mean": 1.19,
+        "max": 1.753,
+        "n": 10
+      },
+      "rag_freshness": {
+        "mean": 0.193,
+        "max": 0.193,
+        "n": 1
+      },
+      "memory": {
+        "mean": 0.064,
+        "max": 0.166,
+        "n": 10
+      },
+      "unknown_incident": {
+        "mean": 0.053,
+        "max": 0.09,
+        "n": 10
+      },
+      "insufficient_evidence": {
+        "mean": 0.052,
+        "max": 0.052,
+        "n": 1
+      },
+      "terminal_command": {
+        "mean": 0.009,
+        "max": 0.009,
+        "n": 1
+      }
+    }
+  },
+  "resource_usage_proxy": {
+    "method": "Conteo de llamadas al LLM por ruta del grafo (ver graph.py); no es consumo de tokens real. Mejora propuesta: instrumentar usage_metadata de cada respuesta del LLM en una corrida futura.",
+    "total_estimated_llm_calls": 216,
+    "by_category": {
+      "greeting": {
+        "estimated_llm_calls_total": 0,
+        "scenarios": 10,
+        "estimated_llm_calls_per_scenario": 0.0
+      },
+      "missing_id": {
+        "estimated_llm_calls_total": 0,
+        "scenarios": 10,
+        "estimated_llm_calls_per_scenario": 0.0
+      },
+      "unknown_incident": {
+        "estimated_llm_calls_total": 0,
+        "scenarios": 10,
+        "estimated_llm_calls_per_scenario": 0.0
+      },
+      "procedure_lookup": {
+        "estimated_llm_calls_total": 30,
+        "scenarios": 10,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "evidence_gaps": {
+        "estimated_llm_calls_total": 30,
+        "scenarios": 10,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "memory": {
+        "estimated_llm_calls_total": 30,
+        "scenarios": 10,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "sql_query": {
+        "estimated_llm_calls_total": 30,
+        "scenarios": 10,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "approval_reject": {
+        "estimated_llm_calls_total": 30,
+        "scenarios": 10,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "approval_accept": {
+        "estimated_llm_calls_total": 30,
+        "scenarios": 10,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "language": {
+        "estimated_llm_calls_total": 12,
+        "scenarios": 4,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "data_integrity": {
+        "estimated_llm_calls_total": 9,
+        "scenarios": 3,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "persistence": {
+        "estimated_llm_calls_total": 6,
+        "scenarios": 2,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "safety": {
+        "estimated_llm_calls_total": 3,
+        "scenarios": 1,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "insufficient_evidence": {
+        "estimated_llm_calls_total": 0,
+        "scenarios": 1,
+        "estimated_llm_calls_per_scenario": 0.0
+      },
+      "target_validation": {
+        "estimated_llm_calls_total": 3,
+        "scenarios": 1,
+        "estimated_llm_calls_per_scenario": 3.0
+      },
+      "terminal_command": {
+        "estimated_llm_calls_total": 0,
+        "scenarios": 1,
+        "estimated_llm_calls_per_scenario": 0.0
+      },
+      "rag_freshness": {
+        "estimated_llm_calls_total": 3,
+        "scenarios": 1,
+        "estimated_llm_calls_per_scenario": 3.0
+      }
+    }
+  },
+  "failures": [
+    {
+      "scenario_id": "SHLD-003",
+      "category": "greeting",
+      "status": "FAIL",
+      "detail": "No se detectó una respuesta de saludo esperada."
+    },
+    {
+      "scenario_id": "SHLD-009",
+      "category": "greeting",
+      "status": "FAIL",
+      "detail": "No se detectó una respuesta de saludo esperada."
+    },
+    {
+      "scenario_id": "SHLD-010",
+      "category": "greeting",
+      "status": "FAIL",
+      "detail": "No se detectó una respuesta de saludo esperada."
+    },
+    {
+      "scenario_id": "SHLD-085",
+      "category": "approval_accept",
+      "status": "FAIL",
+      "detail": "El escenario esperaba una pausa de aprobación, pero el grafo no se interrumpió. Revisa evidencia y fuentes de procedimiento."
+    },
+    {
+      "scenario_id": "SHLD-094",
+      "category": "language",
+      "status": "FAIL",
+      "detail": "La respuesta no parece estar en el idioma solicitado."
+    },
+    {
+      "scenario_id": "SHLD-102",
+      "category": "target_validation",
+      "status": "ERROR",
+      "detail": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m0dysdz8ek8s6czqaaw430qq` service tier `on_demand` on tokens per day ("
+    }
+  ]
+}
