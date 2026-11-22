@@ -1,7 +1,43 @@
 {
   "conversations": {
-    "total": 1,
+    "total": 7,
     "data": [
+      {
+        "thread_id": "5e85dd66-a9c6-45d8-9e73-79bdea592ddc",
+        "title": "tengo un incidente de acceso no autorizado en el servidor DB-01, el ID es INC-20",
+        "created_at": "2026-11-18 20:32:36",
+        "updated_at": "2026-11-18 20:36:27"
+      },
+      {
+        "thread_id": "212b8dfc-1f1a-48e6-85af-e6a1a6bcdcc9",
+        "title": "tengo un incidente de acceso no autorizado en el servidor DB-01, el ID es INC-20",
+        "created_at": "2026-11-18 20:28:54",
+        "updated_at": "2026-11-18 20:30:24"
+      },
+      {
+        "thread_id": "80e574a0-ed20-42c4-b6e4-28505a0c7579",
+        "title": "New investigation",
+        "created_at": "2026-11-18 20:18:23",
+        "updated_at": "2026-11-18 20:18:23"
+      },
+      {
+        "thread_id": "0f7b7ebc-5b35-4a7e-94b5-810f31bf2177",
+        "title": "New investigation",
+        "created_at": "2026-11-18 20:15:21",
+        "updated_at": "2026-11-18 20:15:21"
+      },
+      {
+        "thread_id": "3e8b9ae0-0d61-4ce3-846f-02b07b50b1c9",
+        "title": "INC-2024-001",
+        "created_at": "2026-11-18 20:09:28",
+        "updated_at": "2026-11-18 20:10:01"
+      },
+      {
+        "thread_id": "3dcdf444-d39a-4df0-bbf6-6b4a0aa98647",
+        "title": "tengo un incidente de acceso no autorizado en el servidor DB-01",
+        "created_at": "2026-11-18 20:04:06",
+        "updated_at": "2026-11-18 20:06:52"
+      },
       {
         "thread_id": "14290fc1-c497-4f93-b782-70e4b58eca55",
         "title": "HOLA",
@@ -17,7 +53,68 @@
     "data": []
   },
   "security_events": {
-    "total": 0,
-    "data": []
+    "total": 6,
+    "data": [
+      {
+        "id": 1,
+        "event_id": "EVT-001",
+        "incident_id": "INC-2024-001",
+        "event_type": "unauthorized_access",
+        "severity": "critical",
+        "description": "Login fallido repetido desde IP externa hacia servidor DB-01. Se detectaron 47 intentos en 3 minutos. Patrón consistente con ataque de fuerza bruta.",
+        "source_ip": "185.220.101.45",
+        "created_at": "2026-11-18 20:03:39"
+      },
+      {
+        "id": 2,
+        "event_id": "EVT-002",
+        "incident_id": "INC-2024-001",
+        "event_type": "privilege_escalation",
+        "severity": "high",
+        "description": "Intento de escalación de privilegios detectado en DB-01 tras acceso exitoso con credenciales de usuario 'backup_svc'. Proceso ejecutado: net localgroup administrators.",
+        "source_ip": "185.220.101.45",
+        "created_at": "2026-11-18 20:03:39"
+      },
+      {
+        "id": 3,
+        "event_id": "EVT-003",
+        "incident_id": "INC-2024-001",
+        "event_type": "data_exfiltration",
+        "severity": "critical",
+        "description": "Transferencia de datos inusual desde DB-01 hacia IP externa. Volumen: 2.3 GB en 8 minutos. Puerto destino: 443. Protocolo: HTTPS tunelizado.",
+        "source_ip": "185.220.101.45",
+        "created_at": "2026-11-18 20:03:39"
+      },
+      {
+        "id": 4,
+        "event_id": "EVT-004",
+        "incident_id": "INC-2024-002",
+        "event_type": "malware_detected",
+        "severity": "high",
+        "description": "Proceso sospechoso detectado en WS-042: svchost32.exe ejecutándose desde C:\\Users\\Public\\Downloads. Firma digital no válida. Comunicación C2 detectada.",
+        "source_ip": "10.0.1.42",
+        "created_at": "2026-11-18 20:03:39"
+      },
+      {
+        "id": 5,
+        "event_id": "EVT-005",
+        "incident_id": "INC-2024-002",
+        "event_type": "lateral_movement",
+        "severity": "medium",
+        "description": "Movimiento lateral detectado desde WS-042 hacia servidores internos. Protocolo SMB utilizado para escaneo de red interna en rango 10.0.1.0/24.",
+        "source_ip": "10.0.1.42",
+        "created_at": "2026-11-18 20:03:39"
+      },
+      {
+        "id": 6,
+        "event_id": "EVT-006",
+        "incident_id": "INC-2024-003",
+        "event_type": "data_leak",
+        "severity": "medium",
+        "description": "Empleado con acceso a datos sensibles de clientes realizó descarga masiva de registros fuera de horario laboral (02:34 AM). Volumen: 15,000 registros.",
+        "source_ip": "10.0.5.88",
+        "created_at": "2026-11-18 20:03:39"
+      }
+    ]
   }
 }

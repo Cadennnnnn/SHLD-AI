@@ -83,7 +83,18 @@ def _is_greeting_only(text: str) -> bool:
         "buenas noches", "hello", "hi", "hey", "hello shld", "good morning",
         "good afternoon", "good evening", "gracias", "muchas gracias",
     }
-    return normalized in greetings
+    if normalized in greetings:
+        return True
+    # Saludos con pregunta de capacidades (ej: "Hola, ¿qué puedes hacer?")
+    capability_patterns = (
+        r"(?i)^(hola|hi|hello|buenas?)[,.]?\s+.*(puedes|hacer|ayudar|what can|how can)",
+        r"(?i)^[¿]?(cómo|como)\s+(puedes|puede)\s+(ayudar)",
+        r"(?i)^(what|how)\s+can\s+you",
+    )
+    for pattern in capability_patterns:
+        if re.search(pattern, text.strip()):
+            return True
+    return False
 
 def _is_terminal_command(text: str) -> bool:
     """Detect shell commands accidentally pasted into the chat interface."""
@@ -254,22 +265,55 @@ def intake_node(state: SHLDState) -> dict[str, Any]:
     }
 
 def greeting_node(state: SHLDState) -> dict[str, Any]:
+    text = state.get("user_request", "")
+    is_capability_question = bool(re.search(
+        r"(?i)(puedes|hacer|ayudar|what can|how can|como puede)", text
+    ))
     if state.get("language") == "Spanish":
-        response = (
-            "Hola. Soy SHLD AI, un sistema de investigación defensiva de "
-            "ciberseguridad en modo simulado. Puedo revisar eventos registrados, "
-            "consultar procedimientos y organizar un plan de investigación. "
-            "¿Qué incidente o problema quieres analizar?"
-        )
+        if is_capability_question:
+            response = (
+                "Hola. Soy SHLD AI, un sistema multiagente de investigacion defensiva "
+                "de ciberseguridad en modo simulado. Puedo:\n\n"
+                "- Buscar eventos de seguridad registrados para un incidente dado.\n"
+                "- Consultar procedimientos internos usando busqueda semantica (RAG).\n"
+                "- Analizar evidencia con agentes especializados en triage, analisis "
+                "y coordinacion de respuesta.\n"
+                "- Proponer acciones de contencion simuladas que requieren aprobacion "
+                "humana antes de registrarse.\n"
+                "- Recordar investigaciones previas para mantener continuidad entre sesiones.\n\n"
+                "No me conecto a infraestructura real ni ejecuto acciones sobre sistemas. "
+                "Que incidente quieres investigar?"
+            )
+        else:
+            response = (
+                "Hola. Soy SHLD AI, un sistema de investigacion defensiva de "
+                "ciberseguridad en modo simulado. Puedo revisar eventos registrados, "
+                "consultar procedimientos y organizar un plan de investigacion. "
+                "Que incidente o problema quieres analizar?"
+            )
     else:
-        response = (
-            "Hello. I’m SHLD AI, a defensive cybersecurity investigation system "
-            "running in simulation mode. I can review recorded events, consult "
-            "procedures, and organize an investigation plan. What would you like "
-            "to investigate?"
-        )
+        if is_capability_question:
+            response = (
+                "Hello. I am SHLD AI, a defensive cybersecurity investigation system "
+                "running in simulation mode. I can:\n\n"
+                "- Search recorded security events for a given incident.\n"
+                "- Query internal procedures using semantic search (RAG).\n"
+                "- Analyze evidence with specialized triage, analysis, and "
+                "response coordination agents.\n"
+                "- Propose simulated containment actions that require human "
+                "approval before being recorded.\n"
+                "- Remember prior investigations to maintain continuity across sessions.\n\n"
+                "I do not connect to real infrastructure or execute actions on systems. "
+                "What incident would you like to investigate?"
+            )
+        else:
+            response = (
+                "Hello. I am SHLD AI, a defensive cybersecurity investigation system "
+                "running in simulation mode. I can review recorded events, consult "
+                "procedures, and organize an investigation plan. What would you like "
+                "to investigate?"
+            )
     return {"final_response": response, "messages": [AIMessage(content=response)]}
-
 def terminal_command_help_node(state: SHLDState) -> dict[str, Any]:
     if state.get("language") == "Spanish":
         response = (
