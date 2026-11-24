@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-10-21T20:27:31-03:00",
+  "method": "live LangGraph execution with conservative rule-based assessment; REVIEW cases excluded from pass rate",
+  "selected_scenarios": 104,
+  "completed_executions": 103,
+  "execution_errors": 1,
+  "pass": 75,
+  "fail": 6,
+  "review_required": 23,
+  "assessed_cases": 81,
+  "pass_rate_percent_excluding_review": 92.59,
+  "mean_elapsed_seconds": 13.343,
+  "results_csv": "evaluation\\results\\scenario_results_20261021_202731.csv",
+  "note": "These automated checks are heuristics, not a substitute for manual review of response quality. Synthetic event fixtures are inserted and removed per scenario; simulated approval decisions are recorded then removed after verification."
+}
