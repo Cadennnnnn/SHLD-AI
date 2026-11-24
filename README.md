@@ -116,5 +116,3 @@ python -m evaluation.run_scenarios --limit 10
 ```
 
 El ejecutor guarda CSV detallado y JSON de resumen en `evaluation/results/`. Las categorías de aprobación usan eventos sintéticos definidos fuera del código en `evaluation/fixtures.csv`; se insertan y eliminan durante cada caso. Las decisiones de aprobación son simuladas por el evaluador para comprobar el registro y nunca ejecutan acciones reales. Las comprobaciones se basan en reglas conservadoras, no en un juez semántico perfecto: los casos `REVIEW` requieren revisión manual y no se incluyen en la tasa de aprobación. El ejecutor usa un checkpoint en memoria para no contaminar los hilos persistentes de la aplicación.
-
-No presentes el número de escenarios como tasa de éxito: incluye en el informe los archivos de resultados generados, la tasa calculada, los casos fallidos y los casos pendientes de revisión.
